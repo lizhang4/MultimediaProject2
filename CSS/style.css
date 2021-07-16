@@ -1,0 +1,163 @@
+/* Initialisation */
+
+:root {
+    --color_white: #ffffff;
+    --color_background: #F6F6F6;
+    --color_text: #B5B5B5;
+    --color_body: #8F8F8F;
+    --color_title2: #6D6D6D;
+    --color_title1: #222222;
+
+    --color_red: #DE4C4C;
+    --color_blue: #5D84EA;
+    --color_highlight: #FF8710;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color_title1);
+}
+
+body {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* End Initialisation */
+
+/* Navbar */
+nav {
+    height: 10vh;
+
+}
+
+
+
+
+/* End Navbar */
+
+/* Hero Image */
+.hero-image {
+    height: 90vh;
+    background-image: url("./imgs/HeroImage.jpg");
+    background-size: cover;
+    position: relative;
+}
+
+
+.hero-image .title-container {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color_white);
+    width: 60%;
+}
+
+/* End Hero Image */
+
+
+/* Posts */
+.posts {
+    height: fit-content;
+
+}
+
+.posts .lower-row {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: wrap;
+    gap: 20px 20px;
+
+}
+
+.posts .lower-row .post{
+    
+    max-height: 600px;
+    height: fit-content;
+    min-height: 100px;
+    flex-basis: 20%;
+    flex-shrink: 1;
+    flex-grow: 1;
+    border: #222222 solid 2px;
+}
+
+.posts .lower-row .post .img {
+    width: 100%;
+    height: 40%;
+}
+
+.posts .lower-row .post .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.posts .lower-row .post .content, .posts .lower-row .post .reaction {
+    padding: 15px 30px;
+}
+
+.posts .lower-row .post .content h3 {
+    font-size: 1rem;
+}
+
+.posts .lower-row .post .content h1 {
+    font-size: 1.3rem;
+}
+
+.posts .lower-row .post .content p {
+    font-size: 0.9rem;
+}
+
+/* End Posts */
+
+
+/* CRUD */
+.CRUD-container{
+    width: 70%;
+    margin: 0 auto;
+}
+
+
+/* End CRUD */
+
+
+
+/* Footer */
+footer {
+    height: 10vh;
+
+}
+
+footer .social-media-container i {
+    font-size: 2.5rem;
+}
+
+footer .social-media-container i:nth-child(2),footer .social-media-container i:nth-child(3) {
+    margin-left: 30px;
+}
+
+footer .links a:nth-child(1), footer .links a:nth-child(2){
+    margin-right: 30px;
+}
+
+
+/* End Footer */
+
+
+
+
+
+
+
+
+
+
