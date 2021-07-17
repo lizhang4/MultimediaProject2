@@ -1,34 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penang</title>
-
-    <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="./style.css">
 
 
-
-
-</head>
-<body>
-    <nav class="row border d-flex align-items-center">
-        <div class="logo col-2 border text-uppercase ">
-            <a href="./index.html">Travel</a>
-        </div>
-        <div class="links col-8 border" >
-            <a href="" class="mx-4">Home</a>
-            <a href="" class="mx-4">About us</a>
-            <a href="./upload.php" class="mx-4">Upload</a>
-        </div>
-        <div class="account col-2 border d-flex justify-content-end">
-            <button>Login</button>
-        </div>
-    </nav>
+<?php
+    include_once "./header.php";
+?>
 
     <section class="hero-image border">
         <div class="title-container px-5 py-2 d-flex justify-content-between align-items-center border">
@@ -95,24 +69,6 @@
         </div>
     </section>
 
-    <footer class="d-flex justify-content-between align-items-center border">
-        <div class="social-media-container d-flex ">
-            <i class="fab fa-facebook-square"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-twitter-square"></i>
-        </div>
-
-        <div class="links">
-            <a href="">Contact us</a>
-            <a href="">FAQ</a>
-            <a href="">About us</a>
-        </div>
-    </footer>
-    
-    <!-- JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-
-</body>
-</html>
+<?php
+    include_once "./footer.php";
+?>

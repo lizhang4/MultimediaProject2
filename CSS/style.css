@@ -47,7 +47,7 @@ nav {
 /* Hero Image */
 .hero-image {
     height: 90vh;
-    background-image: url("./imgs/HeroImage.jpg");
+    background-image: url("../imgs/HeroImage.jpg");
     background-size: cover;
     position: relative;
 }

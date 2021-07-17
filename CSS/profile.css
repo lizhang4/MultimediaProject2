@@ -1,0 +1,63 @@
+/* Initialisation */
+
+:root {
+    --color_white: #ffffff;
+    --color_background: #F6F6F6;
+    --color_text: #B5B5B5;
+    --color_body: #8F8F8F;
+    --color_title2: #6D6D6D;
+    --color_title1: #222222;
+
+    --color_red: #DE4C4C;
+    --color_blue: #5D84EA;
+    --color_highlight: #FF8710;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color_title1);
+}
+
+body {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* Profile */
+.profile-image .img {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background-color: #8F8F8F;
+
+}
+
+.profile-image .img img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.profile-info {
+    width: 70%;
+    margin:  0 auto;
+}
+
+
+.profile-info .table th {
+    width: 50%;
+}
+
+.profile-info .table td {
+    width: 50%;
+}
