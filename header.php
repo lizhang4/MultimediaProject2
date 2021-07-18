@@ -1,5 +1,17 @@
 <?php
     session_start();
+    $currentPage = basename($_SERVER['PHP_SELF'], ".php");
+    if ($currentPage != 'register' && $currentPage != 'login') {
+        if(empty($_SESSION['username']) || $_SESSION['username'] == '') {
+            header("Location: http://localhost/multimediaproject2/login.php");
+            die();
+        }
+    }
+    
+    if(!(empty($_SESSION['username']) || $_SESSION['username'] == '')) {
+        include "./includes/users/userInfo.inc.php";
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +52,11 @@
                 if (isset($_SESSION['username'])) {
 
             ?>
-
-                    <a href="./userAccountProfile.php"><h5>Hi, <?php echo $_SESSION['username'];?></h5></a>
-                    <button id="logout-button">Logout</button>
+                    <div class="nav-profile d-flex">
+                        <img class="profile-image" <?= empty($loggedInProfileImageUrl) ? 'src="./uploads/userProfilePic/IMG-60f2a53cf1b7e8.11118489.jpg"' : 'src="./uploads/userProfilePic/'.$loggedInProfileImageUrl.'"'; ?>>
+                        <a href="./userAccountProfile.php"><h5>Hi, <?php echo $_SESSION['username'];?></h5></a>
+                        <button id="logout-button">Logout</button>
+                    </div>
             <?php        
                 }
                 else {

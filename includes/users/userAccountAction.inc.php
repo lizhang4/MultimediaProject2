@@ -55,6 +55,8 @@ if(isset($_POST['usernameR'])) {
     $username = $_POST['usernameR'];
     $password = $_POST['passwordR'];
     $repassword = $_POST['repasswordR'];
+    $gender = $_POST['genderR'];
+    $shortSummary = $_POST['shortSummaryR'];
 
     $img_name = $_FILES['profileImageR']['name'];
     $img_size = $_FILES['profileImageR']['size'];
@@ -63,7 +65,12 @@ if(isset($_POST['usernameR'])) {
 
 
 
-    if(!empty($username) && !empty($password) && !empty($repassword) && !empty($img_name)) {
+    if(!empty($username) && !empty($password) && !empty($repassword) && !empty($img_name) && !empty($gender) && !empty($shortSummary) ) {
+        if ($img_size > 125000) {
+            header("Location: ../../register.php?error=Sorry, your file is too large");
+            die();
+
+        }
 
         $img_extension = pathinfo($img_name, PATHINFO_EXTENSION);
         $img_extension_lc = strtolower($img_extension);
@@ -75,14 +82,18 @@ if(isset($_POST['usernameR'])) {
             $img_upload_path = '../../uploads/userProfilePic/'.$new_img_name;
             move_uploaded_file($tmp_name, $img_upload_path);
         }
+        else {
+            header("Location: ../../register.php?error=only jpg, jpeg and png");
+            die();
+        }
 
 
         $query1 = "SELECT * FROM users WHERE username = '$username' LIMIT 1";
         $result1 = mysqli_query($conn, $query1);
 
         if(mysqli_num_rows($result1) == 0 &&($password == $password)) {
-            $query = "INSERT INTO users (username, password, profileImage)
-                      VALUES ('$username', '$password', '$new_img_name')";
+            $query = "INSERT INTO users (username, password, profileImage, gender, shortSummary)
+                      VALUES ('$username', '$password', '$new_img_name', '$gender', '$shortSummary')";
 
             mysqli_query($conn, $query);
             $_SESSION['username'] = $username;
@@ -96,5 +107,33 @@ if(isset($_POST['usernameR'])) {
         }
 
 
+    }
+    else {
+        header("Location: ../../register.php?error=unknown error");
+        die();
+    }
+}
+
+
+//Delete Account
+if (isset($_POST['deleteAccount'])) {
+    $username = $_SESSION['username'];
+    unset($_SESSION['username']);
+    
+    $sql = "DELETE FROM users
+            WHERE username='$username'";
+
+    $result = mysqli_query($conn, $sql);
+
+    if($result) {
+        header("Location: ../../login.php?success=successfully deleted");
+        die();
+
+    }
+    else {
+        header("Location: ../../login.php?error=unknown error occurred");
+        die();
+
+        
     }
 }

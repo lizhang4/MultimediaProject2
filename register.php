@@ -20,6 +20,19 @@
     </div>
 
     <div class="mb-3">
+        <label for="gender" class="form-label">Gender</label>
+        <select name="genderR" id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="shortSummary" class="form-label">Short Summary</label>
+        <textarea name="shortSummaryR" id="shortSummary" cols="80" rows="10"></textarea>
+    </div>
+
+    <div class="mb-3">
         <label for="profileImage" class="form-label w-100">Profile Image</label>
         <input type="file" id="profileImage" name="profileImageR" >
     </div>
@@ -53,7 +66,7 @@
 
                     if(data == 1) {
                         console.log("Registered");
-                        // location.replace("./index.php");
+                        location.replace("./index.php");
                     }
 
 

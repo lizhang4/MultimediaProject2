@@ -2,10 +2,17 @@
     include "header.php";
 ?>
 
+
 <section class="profile-image d-flex justify-content-center">
     <div class="img" >
-        <img src="./imgs/HeroImage.jpg" alt="">
+        <img <?= empty($loggedInProfileImageUrl) ? 'src="./uploads/userProfilePic/IMG-60f2a53cf1b7e8.11118489.jpg"' : 'src="./uploads/userProfilePic/'.$loggedInProfileImageUrl.'"'; ?>>
+        <form action="./includes/users/userAccountUpdate.inc.php" id="profileImageForm" method="POST" enctype="multipart/form-data">
+            <input type="file" name="profileImage">
+            <button type="submit" name="updateProfileImage">updateProfileImage</button>
+        </form>
+        <!-- <button class="btn btn-primary">Update Image</button> -->
     </div>
+    
 </section>
 
 <section class="profile-info">
@@ -19,18 +26,24 @@
         <tbody>
             <tr>
                 <th scope="row">Username</th>
-                <td>Mark</td>
+                <td><?=$loggedInUsername?></td>
             </tr>
             <tr>
                 <th scope="row">Gender</th>
-                <td>Male</td>
+                <td><?=$loggedInGender?></td>
             </tr>
             <tr>
                 <th scope="row">Short Summary</th>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus earum minima porro iure harum explicabo vel, non quidem, vero natus distinctio placeat quod dignissimos, quis magni eius temporibus asperiores ex.</td>
+                <td><?=$loggedInShortSummary?></td>
             </tr>
         </tbody>
     </table>
+</section>
+
+<section class="delete-account">
+    <form action="./includes/users/userAccountAction.inc.php" method="POST">
+        <button type="submit" class="btn btn-danger" name="deleteAccount">Delete Account</button>
+    </form>
 </section>
 
 
