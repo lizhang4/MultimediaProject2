@@ -136,6 +136,27 @@ nav .profile-image {
 
 /* End CRUD */
 
+/* Content Section */
+.content-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.content-container .img {
+    width: 50%;
+    height: 100%;
+}
+
+.content-container .img img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+
+/* End Content Section */
+
+
 
 
 /* Footer */
