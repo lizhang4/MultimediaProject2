@@ -1,6 +1,6 @@
 
 
-<footer class="d-flex justify-content-between align-items-center border">
+<footer class="d-flex justify-content-between align-items-center">
 <div class="social-media-container d-flex ">
     <i class="fab fa-facebook-square"></i>
     <i class="fab fa-instagram"></i>

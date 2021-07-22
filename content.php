@@ -4,9 +4,38 @@
 ?>
 
 <?php
-    $query = "SELECT * FROM contents_likes WHERE contents= '$postId' ";
+    // $query = "SELECT * FROM contents_likes WHERE contents= '$postId' ";
+    // $result = mysqli_query($conn, $query);
+    // $likes = mysqli_num_rows($result);
+    include "./includes/users/userInfo.inc.php";
+
+    
+    $query = "SELECT
+                contents_likes.users
+                FROM contents_likes
+                WHERE contents = '$postId'";
+
     $result = mysqli_query($conn, $query);
-    $likes = mysqli_num_rows($result)
+    while($rows = $result->fetch_object()) {
+        $likes[] = $rows;
+    }
+
+    function checkIfUserLiked($loggedInId,$likes) {
+        foreach ($likes as $liked_user) {
+            if ($liked_user->users == $loggedInId) {
+                return "liked";
+
+            }
+        }
+        return "";
+        // if (in_array($loggedInId ,$likes)) {
+        //     return "liked";
+        // }
+        // else {
+        //     return "";
+        // }
+    }
+    
     
 ?>
 
@@ -25,8 +54,9 @@
         
         <div class="like-container d-flex justify-content-start align-items-center">
             
-            <button class="fas fa-heart m-0 p-0" class="like" value = "<?= $postId ?>" onclick="clickLike(<?= $postId ?>)"></button>
-            <p class="m-0 p-0 mx-3"><?=$likes?></p>
+            <button class="fas fa-heart m-0 p-0 like <?=checkIfUserLiked($loggedInId, $likes)?>" value = "<?= $postId ?>" onclick="clickLike(<?= $postId ?>)"></button>
+            <p class="m-0 p-0 mx-3"><?=!empty($likes) ? count($likes) : ""?></p>
+          
 
         </div>
     </div>

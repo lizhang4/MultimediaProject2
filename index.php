@@ -25,7 +25,7 @@
             <div class="col-6 my-5 title text-uppercase text-center">Newest Articles</div>
             <div class="col-3 my-5 search d-flex justify-content-end align-items-center">
                 <form action="" class="d-flex justify-content-end">
-                    <input type="text" placeholder="Search By Keywords">
+                    <input id="searchInput" type="text" placeholder="Search By Keywords">
                     <button><i class="fas fa-search"></i></button>
                 </form>
                 <!-- <div class="text-uppercase text-end">Search By Keywords</div> -->
@@ -69,9 +69,9 @@
                         $stringCut = substr($string, 0, 500);
                         $endPoint = strrpos($stringCut, ' ');
 
-                        // $string = $endPoint ? substr($stringCut, 0 , $endPoint) : substr($stringCut, 0);
-                        // $string .=
-                        return $stringCut;
+                        $string = $endPoint ? substr($stringCut, 0 , $endPoint) : substr($stringCut, 0);
+                        $string .= '...';
+                        return $string;
                     }
                 }
 
@@ -95,7 +95,7 @@
             ?>
 
             <?php foreach( array_reverse($articles) as $article) { ?>
-            <div class="post">
+            <div class="post" search-filter="<?=$article->name?>">
                 <div class="img">
                     <img src="./uploads/<?=$article->image_url?>" alt="">
                 </div>
@@ -107,7 +107,7 @@
                 <div class="reaction d-flex justify-content-between align-items-center ">
                     <div class="like-container d-flex justify-content-start align-items-center">
                         <button class="fas fa-heart m-0 p-0 like <?=checkIfUserLiked(($article->liked_by))?>" value = "<?= $article->id ?>" onclick="clickLike(<?= $article->id ?>)"></button>
-                        <p class="m-0 p-0 mx-3"><?=$article->likes?></p>
+                        <p class="m-0 p-0 mx-3"><?=!empty($article->likes) ? $article->likes : ""?></p>
 
                     </div>
                    
@@ -138,6 +138,15 @@
 
         });
     }
+
+    $(document).ready(function() {
+        $("#searchInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".post").filter(function() {
+                $(this).toggle($(this).attr("search-filter").toLowerCase().indexOf(value) > -1);
+            })
+        })
+    })
     </script>
 
 <?php
