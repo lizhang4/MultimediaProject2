@@ -11,17 +11,26 @@
                 <h2>15 Historical Places Available</h2>
             </div>
             <div class="button d-flex align-items-center">
-                <h3>Explore More</h3>
-                <i class="fas fa-chevron-circle-right"></i>
+                <a href="./index.php#posts" class="d-flex justify-content-around align-items-center">
+                    <h3 class="px-3">Explore More</h3>
+                    <i class="fas fa-chevron-circle-right" style="font-size: 3.2rem;"></i>
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="posts my-5 border">
-        <div class="upper-row row">
-            <div class="col-4 my-5 category text-uppercase text-start">Category</div>
-            <div class="col-4 my-5 title text-uppercase text-center">Newest Articles</div>
-            <div class="col-4 my-5 search text-uppercase text-end">Search By Keywords</div>
+    <section class="posts" id="posts">
+        <div class="upper-row row d-flex align-items-center">
+            <div class="col-3 my-5 category text-uppercase text-start">Category</div>
+            <div class="col-6 my-5 title text-uppercase text-center">Newest Articles</div>
+            <div class="col-3 my-5 search d-flex justify-content-end align-items-center">
+                <form action="" class="d-flex justify-content-end">
+                    <input type="text" placeholder="Search By Keywords">
+                    <button><i class="fas fa-search"></i></button>
+                </form>
+                <!-- <div class="text-uppercase text-end">Search By Keywords</div> -->
+
+            </div>
         </div>
         <div class="lower-row">
             <?php
@@ -34,7 +43,8 @@
                         contents.name,
                         contents.date,
                         contents.info,
-                        COUNT(contents_likes.id) AS likes
+                        COUNT(contents_likes.id) AS likes,
+                        GROUP_CONCAT(users.username SEPARATOR '|') AS liked_by
                 
                         FROM contents
                         
@@ -47,13 +57,39 @@
                         GROUP BY contents.id
                 ");
 
+
+
                 
 
                 $i=0;
 
+                function trimStrLength($originalString) {
+                    $string = strip_tags($originalString);
+                    if (strlen($string) > 200) {
+                        $stringCut = substr($string, 0, 500);
+                        $endPoint = strrpos($stringCut, ' ');
+
+                        // $string = $endPoint ? substr($stringCut, 0 , $endPoint) : substr($stringCut, 0);
+                        // $string .=
+                        return $stringCut;
+                    }
+                }
+
+                
+
                 while($rows = $articlesQuery->fetch_object()) {
+                    $rows->liked_by = $rows->liked_by ? explode('|', $rows->liked_by) : [];
                     $articles[] = $rows;
 
+                }
+
+                function checkIfUserLiked($liked_by) {
+                    if (in_array( $_SESSION['username'],$liked_by)) {
+                        return "liked";
+                    }
+                    else {
+                        return "";
+                    }
                 }
                 
             ?>
@@ -66,16 +102,18 @@
                 <div class="content">
                    <h3 class="text-uppercase">Posted On: 17 July, 2021</h3> 
                    <h1 class="text-uppercase"><?=$article->name?></h1>
-                   <p><?=$article->info?></p>
+                   <p><?=trimStrLength($article->info)?></p>
                 </div>
-                <div class="reaction d-flex justify-content-between">
-                    
-                        <button class="fas fa-heart" class="like" value = "<?= $article->id ?>" onclick="clickLike(<?= $article->id ?>)"></button>
-                        <p><?=$article->likes?></p>
+                <div class="reaction d-flex justify-content-between align-items-center ">
+                    <div class="like-container d-flex justify-content-start align-items-center">
+                        <button class="fas fa-heart m-0 p-0 like <?=checkIfUserLiked(($article->liked_by))?>" value = "<?= $article->id ?>" onclick="clickLike(<?= $article->id ?>)"></button>
+                        <p class="m-0 p-0 mx-3"><?=$article->likes?></p>
+
+                    </div>
                    
-                    <a href="./content.php?id=<?=$article->id?>" class="read-more d-flex justify-content-around align-items-start">
-                        <i class="fas fa-align-left border"></i>
-                        <h5 class="border">Read More</h5>
+                    <a href="./content.php?id=<?=$article->id?>" class="read-more d-flex justify-content-around align-items-center">
+                        <i class="fas fa-align-left m-0 p-0 px-2"></i>
+                        <h5 class="m-0 p-0 ">Read More</h5>
                     </a>
                 </div>
             </div>

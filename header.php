@@ -39,31 +39,31 @@
 
 </head>
 <body>
-    <nav class="row border d-flex align-items-center">
-        <div class="logo col-2 border text-uppercase ">
+    <nav class="row d-flex align-items-center">
+        <div class="logo col-2 text-uppercase ">
             <a href="./index.php">Travel</a>
         </div>
-        <div class="links col-8 border" >
+        <div class="links col-7 " >
             <a href="./index.php" class="mx-4">Home</a>
             <a href="" class="mx-4">About us</a>
             <a href="./upload.php" class="mx-4">Upload</a>
         </div>
-        <div class="account col-2 border d-flex justify-content-end">
+        <div class="account col-3 d-flex justify-content-end align-items-center">
             <?php
                 if (isset($_SESSION['username'])) {
 
             ?>
-                    <div class="nav-profile d-flex">
+                    <div class="nav-profile d-flex align-items-center">
                         <img class="profile-image" <?= empty($loggedInProfileImageUrl) ? 'src="./uploads/userProfilePic/IMG-60f2a53cf1b7e8.11118489.jpg"' : 'src="./uploads/userProfilePic/'.$loggedInProfileImageUrl.'"'; ?>>
-                        <a href="./userAccountProfile.php"><h5>Hi, <?php echo $_SESSION['username'];?></h5></a>
-                        <button id="logout-button">Logout</button>
+                        <a href="./userAccountProfile.php">Hi, <?php echo $_SESSION['username'];?></a>
+                        <button id="logout-button" style="padding-left: 20px;"><a href="#">Logout</a></button>
                     </div>
             <?php        
                 }
                 else {
             ?>
-                    <button><a href="./login.php">Login</a></button>
-                    <button><a href="./register.php">Register</a></button>
+                    <button style="padding: 0 20px;"><a href="./login.php">Login</a></button>
+                    <button style="padding-left: 20px;"><a href="./register.php">Register</a></button>
 
             <?php        
 

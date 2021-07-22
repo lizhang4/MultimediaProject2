@@ -1,5 +1,5 @@
 /* Initialisation */
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 :root {
     --color_white: #ffffff;
     --color_background: #F6F6F6;
@@ -18,6 +18,7 @@
     padding: 0;
     box-sizing: border-box;
     font-size: 14px;
+    font-family: "Roboto", sans-serif;
 }
 
 a {
@@ -30,6 +31,7 @@ body {
     width: 90%;
     max-width: 1400px;
     margin: 0 auto;
+    background-color: var(--color_background);
 }
 
 /* End Initialisation */
@@ -40,12 +42,49 @@ nav {
 
 }
 
-nav .profile-image {
-    height: 50px;
 
+
+nav .logo a{
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+}
+
+nav .links a {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.03rem;
+}
+
+nav .account a {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.03rem;
+    padding: 0 20px;
+
+}
+
+
+nav .account .profile-image {
+    height: 50px;
     width: 50px;
     border-radius: 50%;
 }
+
+nav button {
+    border: none;
+    background-color: transparent;
+    border-left: var(--color_title1) solid 2px;
+    
+}
+
+nav button a {
+    font-size: 1rem;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+
 
 
 
@@ -70,14 +109,64 @@ nav .profile-image {
     width: 60%;
 }
 
+.hero-image .title-container .title h1{
+    font-size: 2.5rem;
+}
+
+.hero-image .title-container .title h2 {
+    font-size: 1.3rem;
+
+}
+
+
+
 /* End Hero Image */
 
 
 /* Posts */
 .posts {
     height: fit-content;
+    margin: 80px auto;
 
 }
+
+.posts .upper-row .title {
+    color: var(--color_title2);
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+}
+
+.posts .upper-row .search{
+    width: 25%;
+    height: 50px;
+
+}
+
+.posts .upper-row .search form {
+    width: 100%;
+    height: 100%;
+    
+}
+
+.posts .upper-row .search input{
+    width: 100%;
+    height: 100%;
+    padding-left: 15px;
+    background-color: transparent;
+    border: none;
+    border-bottom: var(--color_title1) solid 1px;
+    outline: none;
+}
+
+.posts .upper-row .search button {
+    width: 20%;
+    border: none;
+    background-color: transparent;
+    
+}
+
+
+
 
 .posts .lower-row {
     display: flex;
@@ -89,13 +178,13 @@ nav .profile-image {
 
 .posts .lower-row .post{
     
-    max-height: 600px;
+    max-height: 800px;
     height: fit-content;
     min-height: 100px;
+    max-width: 25%;
     flex-basis: 20%;
     flex-shrink: 1;
     flex-grow: 1;
-    border: #222222 solid 2px;
 }
 
 .posts .lower-row .post .img {
@@ -109,9 +198,16 @@ nav .profile-image {
     object-fit: cover;
 }
 
-.posts .lower-row .post .content, .posts .lower-row .post .reaction {
-    padding: 15px 30px;
+.posts .lower-row .post .content {
+    padding:25px 20px;
+
 }
+
+.posts .lower-row .post .reaction {
+    padding: 15px 20px;
+}
+
+
 
 .posts .lower-row .post .content h3 {
     font-size: 1rem;
@@ -123,6 +219,22 @@ nav .profile-image {
 
 .posts .lower-row .post .content p {
     font-size: 0.9rem;
+}
+
+.like-container button {
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: var(--color_text);
+    border: none;
+    outline: none;
+}
+
+.like-container button.liked {
+    color: var(--color_red);
+}
+
+.posts .lower-row .post .reaction a h5 {
+    font-size: 1rem;
 }
 
 /* End Posts */
@@ -139,8 +251,58 @@ nav .profile-image {
 
 /* Content Section */
 .content-container {
-    width: 90%;
+    width: 80%;
+    height: 80vh;
+    padding: 40px 0;
     margin: 0 auto;
+}
+
+.content-container .info-container {
+    padding-top: 40px;
+    width: 50%;
+    padding-right: 5%;
+}
+
+.content-container .info-container h1  {
+    font-size: 3.5rem;
+    color: var(--color_title1);
+    letter-spacing: 0.1rem;
+    margin-bottom: 30px;
+}
+
+.content-container .info-container .sub-title-container {
+    margin-bottom: 60px;
+}
+
+.content-container .info-container .sub-title-container h2 {
+    margin-right: 30px;
+    color: var(--color_text);
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+}
+
+.content-container .info-container .sub-title-container h2 span {
+    color: var(--color_title1);
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+}
+
+.content-container .info-container .info {
+    height: fit-content;
+    max-height: 250px;
+    
+}
+
+.content-container .info-container .info h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.content-container .info-container .info p {
+    font-size: 1rem;
+    text-align: justify;
 }
 
 .content-container .img {
@@ -151,7 +313,7 @@ nav .profile-image {
 .content-container .img img {
     object-fit: cover;
     height: 100%;
-    width: 100%;
+    width: 90%;
 }
 
 

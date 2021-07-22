@@ -13,7 +13,7 @@
 <section class="content-container row">
     <div class="col-6 info-container">
         <h1><?=$postName?></h1>
-        <div class="sub-title-container d-flex ">
+        <div class="sub-title-container d-flex justify-content-between">
             <h2 class="d-flex flex-column">Country<span>Malaysia</span></h2>
             <h2 class="d-flex flex-column">Region<span>Penang</span></h2>
             <h2 class="d-flex flex-column">Since<span><?=$postHistoricalDate?></span></h2>
@@ -22,13 +22,15 @@
             <h2>Info</h2>
             <p><?=$postInfo?></p>
         </div>
-        <div class="likes">
-            <button class="fas fa-heart" class="like" value = "<?= $postId ?>" onclick="clickLike(<?= $postId ?>)"></button>
-            <p><?=$likes?></p>
+        
+        <div class="like-container d-flex justify-content-start align-items-center">
+            
+            <button class="fas fa-heart m-0 p-0" class="like" value = "<?= $postId ?>" onclick="clickLike(<?= $postId ?>)"></button>
+            <p class="m-0 p-0 mx-3"><?=$likes?></p>
 
         </div>
     </div>
-    <div class="col-6 img ">
+    <div class="col-6 img d-flex justify-content-end">
         <img src="./uploads/<?=$postImage?>" alt="">
     </div>
 
