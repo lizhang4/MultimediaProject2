@@ -3,6 +3,13 @@
     include "./includes/contentInfo.inc.php";
 ?>
 
+<?php
+    $query = "SELECT * FROM contents_likes WHERE contents= '$postId' ";
+    $result = mysqli_query($conn, $query);
+    $likes = mysqli_num_rows($result)
+    
+?>
+
 <section class="content-container row">
     <div class="col-6 info-container">
         <h1><?=$postName?></h1>
@@ -16,7 +23,9 @@
             <p><?=$postInfo?></p>
         </div>
         <div class="likes">
-            <i class="fas fa-heart"></i>
+            <button class="fas fa-heart" class="like" value = "<?= $postId ?>" onclick="clickLike(<?= $postId ?>)"></button>
+            <p><?=$likes?></p>
+
         </div>
     </div>
     <div class="col-6 img ">
@@ -27,7 +36,23 @@
 </section>
 
 
+<script>
 
+    function clickLike(id) {
+                
+        $.ajax({
+            type: "GET",
+            url: "./includes/like.inc.php",
+            data: jQuery.param({id: id}),
+            success: function(response) {
+                if(response == 1) {
+                    location.reload();
+                }
+            }
+
+        });
+    }
+</script>
 
 <?php
     include_once "footer.php";

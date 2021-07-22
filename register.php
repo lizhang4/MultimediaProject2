@@ -5,7 +5,7 @@
 
 
 
-<form id="registrationForm" enctype="multipart/form-data">
+<form id="registrationForm"  enctype="multipart/form-data">
     <div class="mb-3">
         <label for="username" class="form-label">Username</label>
         <input class="form-control" id="username" name="usernameR">
@@ -32,10 +32,10 @@
         <textarea name="shortSummaryR" id="shortSummary" cols="80" rows="10"></textarea>
     </div>
 
-    <div class="mb-3">
+    <!-- <div class="mb-3">
         <label for="profileImage" class="form-label w-100">Profile Image</label>
         <input type="file" id="profileImage" name="profileImageR" >
-    </div>
+    </div> -->
     
     <button type="submit" class="btn btn-primary" name="register">Register</button>
 </form>
@@ -46,38 +46,45 @@
 
 
 <script>
-    $("#registrationForm").submit(function(e) {
-        
-        if (registrationErrorHandler()) {
-            var form = $(this);
-            var formData = new FormData($("#registrationForm")[0]);
-            console.log(formData);
-
-            // console.log($("#registrationForm").serialize())
-            $.ajax({
-                type: "POST",
-                url: "./includes/users/userAccountAction.inc.php",
-                processData: false,
-                contentType: false,
-                data: formData,
-                success:function(data) {
-                    console.log("Submit");
-                    console.log(data);
-
-                    if(data == 1) {
-                        console.log("Registered");
-                        location.replace("./index.php");
+    $(document).ready(function(e){
+        $("#registrationForm").submit(function(e) {
+            
+            if (loginErrorHandler()) {
+    
+                $.ajax({
+                    type: "POST",
+                    url: "./includes/users/userAccountAction.inc.php",
+                    data: new FormData(this),
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        alert(response);
+                        console.log("Submit");
+                        if(response == 1) {
+                            console.log("Logined");
+                            location.replace("./index.php");
+                        }
+                        else if (response == 2) {
+                            alert("already exist");
+                        }
+                        else {
+                            alert("Else");
+                        }
+    
+    
+    
+    
+    
                     }
+    
+                });
+            }
+            e.preventDefault();
 
+    
+    
+        });
 
-
-
-
-                }
-
-            });
-        }
-        e.preventDefault();
 
 
     });

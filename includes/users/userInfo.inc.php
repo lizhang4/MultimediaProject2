@@ -12,6 +12,8 @@
     $result = mysqli_query($conn, $query);
     $userData = mysqli_fetch_assoc($result);
 
+
+    $loggedInId = $userData['id'];
     $loggedInUsername = $userData['username'];
     $loggedInProfileImageUrl = $userData['profileImage'];
     $loggedInGender = $userData['gender'];

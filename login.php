@@ -25,7 +25,7 @@
 <script>
     $("#loginForm").submit(function(e) {
         
-        if (registrationErrorHandler()) {
+        if (loginErrorHandler()) {
             $.ajax({
                 type: "POST",
                 url: "./includes/users/userAccountAction.inc.php",

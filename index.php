@@ -27,39 +27,80 @@
             <?php
                 include "./includes/db.inc.php";
 
-                $sql = "SELECT * FROM contents ORDER BY id DESC";
-                $result = mysqli_query($conn, $sql);
+                $articlesQuery = $conn->query(
+                    "SELECT 
+                        contents.id,
+                        contents.image_url,
+                        contents.name,
+                        contents.date,
+                        contents.info,
+                        COUNT(contents_likes.id) AS likes
+                
+                        FROM contents
+                        
+                        LEFT JOIN contents_likes
+                        ON contents.id = contents_likes.contents
+                        
+                        LEFT JOIN users
+                        ON contents_likes.users = users.id
+
+                        GROUP BY contents.id
+                ");
+
+                
 
                 $i=0;
-                while($rows = mysqli_fetch_assoc($result)) {
-                    $i++;
+
+                while($rows = $articlesQuery->fetch_object()) {
+                    $articles[] = $rows;
+
+                }
                 
             ?>
 
-
+            <?php foreach( array_reverse($articles) as $article) { ?>
             <div class="post">
                 <div class="img">
-                    <img src="./uploads/<?=$rows['image_url']?>" alt="">
+                    <img src="./uploads/<?=$article->image_url?>" alt="">
                 </div>
                 <div class="content">
                    <h3 class="text-uppercase">Posted On: 17 July, 2021</h3> 
-                   <h1 class="text-uppercase"><?=$rows['name']?></h1>
-                   <p><?=$rows['info']?></p>
+                   <h1 class="text-uppercase"><?=$article->name?></h1>
+                   <p><?=$article->info?></p>
                 </div>
                 <div class="reaction d-flex justify-content-between">
-                    <i class="fas fa-heart"></i>
-                    <a href="./content.php?id=<?=$rows['id']?>" class="read-more d-flex justify-content-around align-items-start">
+                    
+                        <button class="fas fa-heart" class="like" value = "<?= $article->id ?>" onclick="clickLike(<?= $article->id ?>)"></button>
+                        <p><?=$article->likes?></p>
+                   
+                    <a href="./content.php?id=<?=$article->id?>" class="read-more d-flex justify-content-around align-items-start">
                         <i class="fas fa-align-left border"></i>
                         <h5 class="border">Read More</h5>
                     </a>
                 </div>
             </div>
-            
-
             <?php } ?>
-
+            
         </div>
     </section>
+
+    <script>
+
+    function clickLike(id) {
+                
+        $.ajax({
+            type: "GET",
+            url: "./includes/like.inc.php",
+            data: jQuery.param({id: id}),
+            success: function(response) {
+                if(response == 1) {
+                    location.reload();
+                }
+            }
+
+        });
+    }
+    </script>
 
 <?php
     include_once "./footer.php";
