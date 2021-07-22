@@ -1,9 +1,8 @@
-<?php
-    include "./includes/read.inc.php";
-?>
+
 
 <?php
     include "header.php";
+    include "./includes/read.inc.php";
 ?>
 
 

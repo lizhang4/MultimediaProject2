@@ -23,6 +23,7 @@
 a {
     text-decoration: none;
     color: var(--color_title1);
+    cursor: pointer !important;
 }
 
 body {

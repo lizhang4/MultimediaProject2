@@ -24,47 +24,39 @@
             <div class="col-4 my-5 search text-uppercase text-end">Search By Keywords</div>
         </div>
         <div class="lower-row">
+            <?php
+                include "./includes/db.inc.php";
+
+                $sql = "SELECT * FROM contents ORDER BY id DESC";
+                $result = mysqli_query($conn, $sql);
+
+                $i=0;
+                while($rows = mysqli_fetch_assoc($result)) {
+                    $i++;
+                
+            ?>
+
+
             <div class="post">
                 <div class="img">
-                    <img src="./imgs/HeroImage.jpg" alt="">
+                    <img src="./uploads/<?=$rows['image_url']?>" alt="">
                 </div>
                 <div class="content">
                    <h3 class="text-uppercase">Posted On: 17 July, 2021</h3> 
-                   <h1 class="text-uppercase">Long Time Journey</h1>
-                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget vulputate mi. Proin ullamcorper at sapien quis hendrerit. Curabitur felis tortor, dignissim ut Curabitur felis tortor, dignissim ut </p>
+                   <h1 class="text-uppercase"><?=$rows['name']?></h1>
+                   <p><?=$rows['info']?></p>
                 </div>
                 <div class="reaction d-flex justify-content-between">
                     <i class="fas fa-heart"></i>
-                    <div class="read-more d-flex justify-content-around align-items-start">
+                    <a href="./content.php?id=<?=$rows['id']?>" class="read-more d-flex justify-content-around align-items-start">
                         <i class="fas fa-align-left border"></i>
                         <h5 class="border">Read More</h5>
-                    </div>
+                    </a>
                 </div>
             </div>
-            <div class="post">
-                <div class="img">
-                    <img src="./imgs/HeroImage.jpg" alt="">
-                </div>
-                <div class="content">
-                   <h3 class="text-uppercase">Posted On: 17 July, 2021</h3> 
-                   <h1 class="text-uppercase">Long Time Journey</h1>
-                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget vulputate mi. Proin ullamcorper at sapien quis hendrerit. Curabitur felis tortor, dignissim ut Curabitur felis tortor, dignissim ut Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget vulputate mi. Proin ullamcorper at sapien quis hendrerit. Curabitur felis tortor, dignissim ut Curabitur felis tortor, dignissim ut</p>
-                </div>
-                <div class="reaction d-flex justify-content-between">
-                    <i class="fas fa-heart"></i>
-                    <div class="read-more d-flex justify-content-around align-items-start">
-                        <i class="fas fa-align-left border"></i>
-                        <h5 class="border">Read More</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="post">2</div>
-            <div class="post">3</div>
-            <div class="post">4</div>
-            <div class="post">5</div>
-            <div class="post">5</div>
+            
 
-
+            <?php } ?>
 
         </div>
     </section>
