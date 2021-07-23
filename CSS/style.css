@@ -19,6 +19,7 @@
     box-sizing: border-box;
     font-size: 14px;
     font-family: "Roboto", sans-serif;
+    scroll-behavior: smooth;
 }
 
 a {
@@ -39,25 +40,26 @@ body {
 /* Navbar */
 nav {
     height: 10vh;
+    
 
 }
 
 
 
 nav .logo a{
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 700;
     letter-spacing: 0.05rem;
 }
 
 nav .links a {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.03rem;
 }
 
 nav .account a {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.03rem;
     padding: 0 20px;
@@ -66,8 +68,8 @@ nav .account a {
 
 
 nav .account .profile-image {
-    height: 50px;
-    width: 50px;
+    height: 35px;
+    width: 35px;
     border-radius: 50%;
 }
 
@@ -246,6 +248,7 @@ nav button a {
 .CRUD-container{
     width: 70%;
     margin: 0 auto;
+    height: 80vh;
 }
 
 

@@ -49,12 +49,10 @@ if (isset($_POST['updateProfileImage'])) {
 
         if($result) {
             header("Location: ../../userAccountProfile.php?success=successfully updated");
-            die();
 
         }
         else {
             header("Location: ../../userAccountProfile.php?username=$username&error=unknown error occurred");
-            die();
 
             
         }
@@ -65,6 +63,5 @@ if (isset($_POST['updateProfileImage'])) {
 }
 else {
     header("Location: ../../userAccountProfile.php?username=$username&error=no file chosen");
-    die();
 
 }

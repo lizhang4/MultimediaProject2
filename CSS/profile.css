@@ -33,11 +33,21 @@ body {
 
 
 /* Profile */
+.profile-section {
+    height: 80vh;
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+
 .profile-image .img {
     height: 300px;
     width: 300px;
     border-radius: 50%;
     background-color: #8F8F8F;
+    position: relative;
+    
 
 }
 
@@ -47,6 +57,46 @@ body {
     width: 100%;
     border-radius: 50%;
 }
+
+.profile-image .img form {
+
+    
+    position: absolute;
+    top: 7%;
+    right: 7%;
+    opacity: 1;
+}
+
+.profile-image .img label {
+    border:var(--color_white) solid 2px;
+    background-color: var(--color_white);
+    color: var(--color_title1);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 0 3px 0.3px var(--color_body);
+}
+
+.profile-image .img label:hover {
+    background-color: var(--color_background);
+}
+
+.profile-image .img label i{
+    color: var(--color_body);
+}
+
+
+
+.profile-image .img input[type="file"] {
+    /* display: none; */
+}
+
+
+
+
+
+
 
 .profile-info {
     width: 70%;
