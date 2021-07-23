@@ -8,8 +8,8 @@
 
 
 <!-- Read Table -->
-<div class="CRUD-container border">
-    <div class="box">
+<div class="CRUD-container">
+    <div class="box read">
         <h4 class="display-4 text-center">Read</h4><hr><br>
         <?php if(isset($_GET['success'])) { ?>
             <div class="alert alert-success" role="alert">
@@ -20,12 +20,12 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">No</th>
                     <th scope="col">Name</th>
                     <th scope="col">Date</th>
                     <th scope="col">Info</th>
-                    <th scope="col">Image_Url</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -62,7 +62,7 @@
                         <!-- test -->
                         <!-- IMG Modal -->
                         <div class="modal fade" id="img<?=$i?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-md">
                             <div class="modal-content">
                                 <div class="modal-body">
                                     <img src="./uploads/<?=$rows['image_url']?>" > 
@@ -73,8 +73,26 @@
                     </td>
                     
                     <td>
-                        <a href="./update.php?id=<?=$rows['id']?>" class="btn btn-success">Update</a>
-                        <a href="./includes/delete.inc.php?id=<?=$rows['id']?>" class="btn btn-danger">Delete</a>
+                        <div class="actions d-flex flex-row">
+
+                            <a href="./update.php?id=<?=$rows['id']?>" class="btn btn-success">Update</a>
+                            <div class="delete mx-3">
+                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#del<?=$i?>">Delete</button>
+    
+                                <div class="modal fade" id="del<?=$i?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <h3>Are You Sure to Delete this?</h3>
+                                                <a href="./includes/delete.inc.php?id=<?=$rows['id']?>" class="btn btn-danger">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+                        
                     </td>
                 </tr>
                 <?php } ?>
