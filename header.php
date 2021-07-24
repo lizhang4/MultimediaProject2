@@ -44,39 +44,67 @@
             <a href="./index.php">Travel</a>
         </div>
         <div class="links col-7 " >
-            <a href="./index.php" class="mx-4">Home</a>
-            <a href="./upload.php" class="mx-4">Upload</a>
+            <a href="./index.php" class="mx-4 d-none d-md-inline">Home</a>
+            <a href="./upload.php" class="mx-4 d-none d-md-inline">Upload</a>
         </div>
         <div class="account col-3 d-flex justify-content-end align-items-center">
             <?php
                 if (isset($_SESSION['username'])) {
 
             ?>
-                    <div class="nav-profile d-flex align-items-center">
+                    <div class="nav-profile d-none d-md-flex align-items-center">
                         <img class="profile-image" <?= empty($loggedInProfileImageUrl) ? 'src="./uploads/userProfilePic/IMG-60f2a53cf1b7e8.11118489.jpg"' : 'src="./uploads/userProfilePic/'.$loggedInProfileImageUrl.'"'; ?>>
                         <a href="./userAccountProfile.php">Hi, <?php echo $_SESSION['username'];?></a>
-                        <button id="logout-button" style="padding-left: 20px;"><a href="#">Logout</a></button>
+                        <button class="logout-button" style="padding-left: 20px;"><a href="#">Logout</a></button>
                     </div>
             <?php        
                 }
                 else {
             ?>
-                    <button style="padding: 0 20px;"><a href="./login.php">Login</a></button>
-                    <button style="padding-left: 20px;"><a href="./register.php">Register</a></button>
+                    <button style="padding: 0 20px;" class="d-none d-md-inline"><a href="./login.php">Login</a></button>
+                    <button style="padding-left: 20px;" class="d-none d-md-inline"><a href="./register.php">Register</a></button>
 
             <?php        
 
                 }
             ?>
 
+            <div class="nav-button d-md-none ">
+                <button id="nav-open">navopen</button>
+            </div>
 
+
+        </div>
+        <div class="nav-slide-handler">
+
+            <div class="nav-slide d-flex flex-column justify-content-center align-items-center">
+                <a href="./index.php"  class="my-3">Home</a>
+                <a href="./upload.php" class="my-3">Upload</a>
+    
+                <?php
+                    if (isset($_SESSION['username'])) {
+    
+                ?>
+                        <button class="my-3 logout-button"><a href="#">Logout</a></button>
+                <?php        
+                    }
+                    else {
+                ?>
+                        <button class="my-3"><a href="./login.php">Login</a></button>
+                        <button class="my-3"><a href="./register.php">Register</a></button>
+    
+                <?php        
+    
+                    }
+                ?>
+            </div>
         </div>
     </nav>
 
 
 
     <script>
-    $("#logout-button").click(function(e) {
+    $(".logout-button").click(function(e) {
         var action = 'logout';
         console.log("Submitted");
         $.ajax({
@@ -90,5 +118,12 @@
 
         });
         e.preventDefault();
+    });
+
+
+    $(".nav-button").click(function(e) {
+        $(".nav-slide-handler").slideToggle();
+
+
     });
 </script>

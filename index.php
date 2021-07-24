@@ -21,8 +21,8 @@
 
     <section class="posts" id="posts">
         <div class="upper-row row d-flex align-items-center">
-            <div class="col-9 my-5 title text-uppercase text-start">Newest Articles</div>
-            <div class="col-3 my-5 search d-flex justify-content-end align-items-center">
+            <div class="col-6 col-lg-9 my-5 title text-uppercase text-start">Newest Articles</div>
+            <div class="col-6 col-lg-3 my-5 search d-flex justify-content-end align-items-center">
                 <form action="" class="d-flex justify-content-end">
                     <input id="searchInput" type="text" placeholder="Search By Keywords">
                     <button><i class="fas fa-search"></i></button>

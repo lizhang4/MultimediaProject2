@@ -40,7 +40,7 @@
 ?>
 
 <section class="content-container row">
-    <div class="col-6 info-container">
+    <div class="col-12 col-lg-6  order-1 order-lg-0 info-container">
         <h1><?=$postName?></h1>
         <div class="sub-title-container d-flex justify-content-between">
             <h2 class="d-flex flex-column">Country<span>Malaysia</span></h2>
@@ -60,8 +60,8 @@
 
         </div>
     </div>
-    <div class="col-6 img d-flex justify-content-end">
-        <img src="./uploads/<?=$postImage?>" alt="">
+    <div class="col-12 col-lg-6 order-0 order-lg-1 img d-flex justify-content-end">
+        <img src="./uploads/<?=$postImage?>" alt="" class="px-lg-3">
     </div>
 
 

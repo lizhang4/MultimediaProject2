@@ -5,7 +5,9 @@
 
 
 
-<form id="loginForm" enctype="multipart/form-data">
+<form id="loginForm" class="CRUD-container d-flex flex-column justify-content-center align-items-center" enctype="multipart/form-data">
+    <h1 class=" text-center">Login</h1><hr>
+
     <div class="mb-3">
         <label for="username" class="form-label">Username</label>
         <input class="form-control" id="username" name="usernameL">
