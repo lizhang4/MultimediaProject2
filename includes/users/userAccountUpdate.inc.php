@@ -9,6 +9,26 @@ if(!$conn) {
     die('failed to connect');
 }
 
+if (isset($_POST['shortSummary'])) {
+    $shortSummary = $_POST['shortSummary'];
+    $username = $_SESSION['username'];
+    echo $shortSummary;
+    $sql = "UPDATE users
+            SET shortSummary='$shortSummary'
+            WHERE username='$username'";
+
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+        header("Location: ../../userAccountProfile.php?success=successfully updated");
+    }
+    else {
+        header("Location: ../../userAccountProfile.php?username=$username&error=unknown error occurred");
+
+    }
+}
+
+
 
 
 // Update Profile Image
@@ -61,7 +81,7 @@ if (isset($_POST['updateProfileImage'])) {
 
 
 }
-else {
-    header("Location: ../../userAccountProfile.php?username=$username&error=no file chosen");
+// else {
+//     header("Location: ../../userAccountProfile.php?username=$username&error=no file chosen");
 
-}
+// }

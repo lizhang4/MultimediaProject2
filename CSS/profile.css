@@ -88,12 +88,6 @@ body {
 
 
 
-.profile-image .img input[type="file"] {
-    /* display: none; */
-}
-
-
-
 
 
 
@@ -111,3 +105,18 @@ body {
 .profile-info .table td {
     width: 50%;
 }
+
+
+.edit-account .edit-button{
+    background-color: transparent;
+    border: none;
+}
+
+.edit-account button:hover {
+    color: var(--color_title2);
+}
+
+.edit-account i{
+    padding-left: 10px;
+}
+
