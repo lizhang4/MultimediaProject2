@@ -251,9 +251,12 @@ nav button a {
 
 /* CRUD */
 .CRUD-container{
-    width: 60%;
+    width: 90%;
+    max-width: 750px;
     margin: 0 auto;
-    height: 80vh;
+    height: fit-content;
+    min-height: 80vh;
+
 }
 
 .CRUD-container .read .modal .modal-body {
@@ -401,6 +404,8 @@ footer .links a:nth-child(1), footer .links a:nth-child(2){
         background-color: var(--color_white);
         box-shadow: 0px 2px 9px 1px rgba(0, 0, 0, 0.25);;
     } 
+
+    
 }
 
 
@@ -435,6 +440,8 @@ footer .links a:nth-child(1), footer .links a:nth-child(2){
         background-color: var(--color_white);
         box-shadow: 0px 2px 9px 1px rgba(0, 0, 0, 0.25);;
     } 
+
+    
 }
 
 @media only screen and (max-width: 576px) {
@@ -446,6 +453,16 @@ footer .links a:nth-child(1), footer .links a:nth-child(2){
         font-size: 1.5rem;
     
     }
+
+    .CRUD-container{
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+        height: fit-content;
+        min-height: 80vh;
+    
+    }
+
     
 }
 

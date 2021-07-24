@@ -34,7 +34,8 @@ body {
 
 /* Profile */
 .profile-section {
-    height: 80vh;
+    height: fit-content;
+    min-height: 80vh;
     width: 80%;
     margin: 0 auto;
 }
@@ -121,6 +122,17 @@ body {
 }
 
 
-/* @media only screen and (max-width: 992px) { */
+@media only screen and (max-width: 576px) {
+    .profile-image .img {
+        height: 200px;
+        width: 200px;
+    }
 
-
+    .profile-info {
+        width: 100%;
+        margin:  0 auto;
+    }
+    .profile-info table th {
+        width: 40%;
+    }
+}

@@ -2,7 +2,7 @@
     include "header.php";
 ?>
 
-<div class="profile-section d-flex justify-content-center align-items-center">
+<div class="profile-section d-flex flex-column flex-lg-row justify-content-center align-items-center">
 
     <section class="profile-image d-flex justify-content-center mx-3">
         <div class="img" >
@@ -19,12 +19,12 @@
         
     </section>
     
-    <section class="profile-info mx-3">
+    <section class="profile-info mx-md-3">
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
+                    <th scope="col">Info</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -38,7 +38,7 @@
                 </tr>
                 <tr>
                     <th scope="row">Short Summary</th>
-                    <td class="d-flex ">
+                    <td class="d-flex w-100">
                         <?=$loggedInShortSummary?>
                 
                     </td>
@@ -48,7 +48,7 @@
         
         <section class="edit-account d-flex justify-content-between">
             
-            <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2">Delete Account</button>
+            <button type="submit" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#exampleModal2">Delete Account</button>
             
             <!-- Modal -->
             <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
