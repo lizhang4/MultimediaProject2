@@ -5,15 +5,15 @@
 ?>
 
     <section class="hero-image border">
-        <div class="title-container px-5 py-2 d-flex justify-content-between align-items-center border">
+        <div class="title-container px-5 py-2 d-flex flex-column flex-md-row justify-content-between align-items-center border">
             <div class="title">
-                <h1>Penang</h1>
-                <h2>15 Historical Places Available</h2>
+                <h1 class="d-flex justify-content-center justify-content-md-start">Penang</h1>
+                <h2 class="d-flex justify-content-center justify-content-md-start">Historical Places</h2>
             </div>
             <div class="button d-flex align-items-center">
-                <a href="./index.php#posts" class="d-flex justify-content-around align-items-center">
+                <a href="./index.php#posts" class=" my-3 d-none d-md-flex justify-content-end align-items-center">
                     <h3 class="px-3">Explore More</h3>
-                    <i class="fas fa-chevron-circle-right" style="font-size: 3.2rem;"></i>
+                    <i class="fas fa-chevron-circle-right p-0" style="font-size: 3.2rem;"></i>
                 </a>
             </div>
         </div>
@@ -21,8 +21,7 @@
 
     <section class="posts" id="posts">
         <div class="upper-row row d-flex align-items-center">
-            <div class="col-3 my-5 category text-uppercase text-start">Category</div>
-            <div class="col-6 my-5 title text-uppercase text-center">Newest Articles</div>
+            <div class="col-9 my-5 title text-uppercase text-start">Newest Articles</div>
             <div class="col-3 my-5 search d-flex justify-content-end align-items-center">
                 <form action="" class="d-flex justify-content-end">
                     <input id="searchInput" type="text" placeholder="Search By Keywords">

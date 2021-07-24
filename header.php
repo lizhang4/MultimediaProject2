@@ -45,7 +45,6 @@
         </div>
         <div class="links col-7 " >
             <a href="./index.php" class="mx-4">Home</a>
-            <a href="" class="mx-4">About us</a>
             <a href="./upload.php" class="mx-4">Upload</a>
         </div>
         <div class="account col-3 d-flex justify-content-end align-items-center">
