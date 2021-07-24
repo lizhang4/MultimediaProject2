@@ -44,11 +44,13 @@ body {
 /* Navbar */
 nav {
     height: 10vh;
+    z-index: 5;
+
 
 }
 
 nav .logo, nav .account {
-    z-index: 3;
+    z-index: 6;
 }
 
 nav .logo a{
@@ -99,12 +101,14 @@ nav .nav-slide-handler {
     width: 100vw;
     background-color: var(--color_background);
     display: none;
+    z-index: 5;
+
 }
 
 nav .nav-slide {
     height: 100%;
     width: 100%;
-    z-index: 2;
+    z-index: 5;
     
 
 }
@@ -361,9 +365,34 @@ nav .nav-slide a {
 .content-container .info-container .info p {
     font-size: 1rem;
     text-align: justify;
-    padding-right: 5px;
+    padding-right: 10px;
     max-height: 210px;
     overflow-y: scroll;
+}
+
+.content-container .info-container .info p::-webkit-scrollbar {
+    width: 3px;
+}
+
+.content-container .info-container .info ::-webkit-scrollbar-track{
+    background-color: #cfcfcf;
+
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: var(--color_background);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #999;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
 }
 
 .content-container .img {
@@ -386,7 +415,7 @@ nav .nav-slide a {
 
 /* Footer */
 footer {
-    height: 10vh;
+    height: 8vh;
 
 }
 

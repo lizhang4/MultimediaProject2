@@ -41,7 +41,7 @@
 <body>
     <nav class="row d-flex align-items-center">
         <div class="logo col-2 text-uppercase ">
-            <a href="./index.php">Travel</a>
+            <a href="./index.php">Penang</a>
         </div>
         <div class="links col-7 " >
             <a href="./index.php" class="mx-4 d-none d-md-inline">Home</a>
@@ -70,7 +70,7 @@
             ?>
 
             <div class="nav-button d-md-none ">
-                <button id="nav-open">navopen</button>
+                <button id="nav-open"><i class="fas fa-bars" style="font-size: 1.5rem;"></i></button>
             </div>
 
 

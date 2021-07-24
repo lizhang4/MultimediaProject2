@@ -5,7 +5,9 @@
 
 
 
-<form id="registrationForm"  enctype="multipart/form-data">
+<form id="registrationForm" class="CRUD-container" enctype="multipart/form-data">
+    <h1 class=" text-center">Register</h1><hr>
+
     <div class="mb-3">
         <label for="username" class="form-label">Username</label>
         <input class="form-control" id="username" name="usernameR">
@@ -27,7 +29,7 @@
         </select>
     </div>
 
-    <div class="mb-3">
+    <div class="mb-3 d-flex flex-column">
         <label for="shortSummary" class="form-label">Short Summary</label>
         <textarea name="shortSummaryR" id="shortSummary" cols="80" rows="10"></textarea>
     </div>

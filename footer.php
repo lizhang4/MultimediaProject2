@@ -1,17 +1,18 @@
 
 
-<footer class="d-flex justify-content-between align-items-center">
-<div class="social-media-container d-flex ">
-    <i class="fab fa-facebook-square"></i>
-    <i class="fab fa-instagram"></i>
-    <i class="fab fa-twitter-square"></i>
-</div>
+<footer class="d-flex justify-content-center align-items-center py-3">
+    <div class="social-media-container d-flex ">
+        <a href="https://www.facebook.com/">
+            <i class="fab fa-facebook-square"></i>
+        </a>
+        <a href="https://www.instagram.com/">
+            <i class="fab fa-instagram mx-4"></i>
+        </a>
+        <a href="https://twitter.com/">
+            <i class="fab fa-twitter-square"></i>
+        </a>
 
-<div class="links">
-    <a href="">Contact us</a>
-    <a href="">FAQ</a>
-    <a href="">About us</a>
-</div>
+    </div>
 </footer>
 
 <!-- JS -->
