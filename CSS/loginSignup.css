@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root {
+    --color_white: #ffffff;
+    --color_background: #F6F6F6;
+    --color_text: #B5B5B5;
+    --color_body: #8F8F8F;
+    --color_title2: #6D6D6D;
+    --color_title1: #222222;
+
+    --color_red: #DE4C4C;
+    --color_blue: #5D84EA;
+    --color_highlight: #FF8710;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    scroll-behavior: smooth;
+}
+
+
+
+.login-container {
+    height: 80vh;
+    position: relative;
+
+}
+
+.login-container::before {
+    content: "";
+    background-image: url(../imgs/HeroImage.jpg);
+    background-size: cover;    
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-position: center;
+    opacity: 0.15;
+    z-index: -1;
+
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+.login-container .box {
+    width: 400px; 
+    height: 550px;
+    background-color: var(--color_white);
+    box-shadow:  0px 2px 10px 0.25px var(--color_body);
+}
+
+.login-container .account-img {
+    border-radius: 50%;
+    background-color: #222222;
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.login-container .account-img i {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--color_white);
+    font-size: 11rem;
+}
+
+.login-container h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color_title1);
+}
+
+.login-container input,.login-container button {
+    height: 50px;
+    width: 300px;
+    border-radius: 5px;
+}

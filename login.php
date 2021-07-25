@@ -5,18 +5,25 @@
 
 
 
-<form id="loginForm" class="CRUD-container d-flex flex-column justify-content-center align-items-center" enctype="multipart/form-data">
-    <h1 class=" text-center">Login</h1><hr>
-
-    <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input class="form-control" id="username" name="usernameL">
+<form id="loginForm" class="login-container d-flex flex-column justify-content-center align-items-center" enctype="multipart/form-data">
+    <div class="box d-flex flex-column justify-content-center align-items-center">
+        
+        <div class="account-img mb-3">
+            <i class="fas fa-user-alt"></i>
+        </div>
+        <h1 class=" text-center mb-4">User Log in</h1>
+    
+        <div class="mb-3">
+            <!-- <label for="username" class="form-label">Username</label> -->
+            <input class="form-control" id="username" name="usernameL" placeholder="Username">
+        </div>
+        <div class="mb-3">
+            <!-- <label for="password" class="form-label">Password</label> -->
+            <input type="text" class="form-control" id="password" name="passwordL" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary mb-3" name="login">Login</button>
+        <p>Haven't register? <a href="./register.php">Register Here!</a></p>
     </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="text" class="form-control" id="password" name="passwordL">
-    </div>
-    <button type="submit" class="btn btn-primary" name="login">Login</button>
 </form>
 
 
