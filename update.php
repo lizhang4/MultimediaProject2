@@ -8,45 +8,54 @@
 ?>
 
 <!-- Create Form -->
-<div class="CRUD-container px-5">
-    <h4 class="display-4 text-center">Update</h4><hr><br>
-    <form  action="./includes/update.inc.php" method="POST" enctype="multipart/form-data">
-        <?php if(isset($_GET['error'])) { ?>
-            <div class="alert alert-danger" role="alert">
-                <?php echo $_GET['error']; ?>
+<div class="CRUD-container px-5 d-flex flex-column justify-content-center align-items-center">
+    <div class="box d-flex flex-column justify-content-center align-items-center">
+
+        <h4 class="text-center">Update</h4>
+        <form  action="./includes/update.inc.php" method="POST" enctype="multipart/form-data">
+            <?php if(isset($_GET['error'])) { ?>
+                <div class="alert alert-danger" role="alert">
+                    <?php echo $_GET['error']; ?>
+                </div>
+            <?php } ?>
+    
+            <div class="mb-3">
+                <input class="form-control" id="contentName" name="name" placeholder="Name" value="<?=$row['name']?>">
             </div>
-        <?php } ?>
-
-        <div class="mb-3">
-            <label for="contentName" class="form-label">Name</label>
-            <input class="form-control" id="contentName" name="name" value="<?=$row['name']?>">
-        </div>
-        <div class="mb-3">
-            <label for="contentDate" class="form-label">Since</label>
-            <input type="number" class="form-control" id="contentDate" name="date" value="<?=$row['date']?>">
-        </div>
-        <div class="mb-3">
-            <label for="contentInfo" class="form-label">Info</label>
-            <textarea class="form-control" id="contentInfo" rows="7" name="info" value="<?=$row['info']?>"></textarea>
-        </div>
-
-        <div class="mb-3 d-flex flex-column">
-            <label for="image" class="form-label">Upload Image</label>
-            <input type="file" name="image" >
-        </div>
+            <div class="mb-3">
+                <input type="number" class="form-control" id="contentDate" name="date" placeholder="Since" value="<?=$row['date']?>">
+            </div>
+            <div class="mb-3">
+                <textarea class="form-control" id="contentInfo" rows="7" name="info" placeholder="Info" value="<?=$row['info']?>"></textarea>
+            </div>
     
-
-        <input type="text" name="id" value="<?=$row['id']?>" hidden>
+            <div class="mb-3 d-flex flex-column">
+                <label for="image" class="form-label">Upload Image</label>
+                <input hidden type="file" name="image" id="image" >
+            </div>
+        
     
-        <button type="submit" class="btn btn-primary px-3" name="update">Update</button>
-        <a href="./read.php" class="link-primary mx-3">View</a>
-    </form>
+            <input type="text" name="id" value="<?=$row['id']?>" hidden>
+            <div class="buttons d-flex justify-content-between align-items-center">
+
+                <button type="submit" class="btn btn-primary px-3" name="update">Update</button>
+                <a href="./read.php" class="link-primary mx-3">View</a>
+            </div>
+        </form>
+    </div>
 </div>
 
 <!-- End Create Form -->
 
 
+<script>
+    $("#image").change(function() {
+        let fileName = $('#image')[0].files[0].name;
+        $(this).prev('label').text(fileName);
+    });
 
+
+</script>
 
 
 

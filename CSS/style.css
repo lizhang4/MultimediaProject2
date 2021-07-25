@@ -287,13 +287,66 @@ nav .nav-slide a {
 
 /* CRUD */
 .CRUD-container{
-    width: 90%;
-    max-width: 750px;
+    width: 100%;
     margin: 0 auto;
     height: fit-content;
     min-height: 80vh;
-
+    position: relative;
 }
+
+.CRUD-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url(../imgs/HeroImage.jpg);
+    background-position: center;
+    background-size: cover;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    z-index: -1;
+    opacity: 0.15;
+}
+
+.CRUD-container .box {
+    width: 400px;
+    height: fit-content;
+    padding: 20px 0;
+    background-color: var(--color_white);
+    border-radius: 5px;
+    box-shadow:  0px 2px 20px 0.25px var(--color_body);
+    padding: 20px;
+}
+
+.CRUD-container .box.read {
+    width: 800px;
+    max-height: 600px;
+    /* overflow-y: scroll; */
+}
+
+.CRUD-container .box.read .table-responsive {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.CRUD-container .box .form-label {
+    cursor: pointer;
+    /* border: #222222 solid 2px; */
+    width: fit-content;
+}
+
+.CRUD-container .box .form-label:hover {
+    color: var(--color_title2);
+}
+
+.CRUD-container .box input, .CRUD-container .box textarea {
+    width: 300px;
+}
+
+
+
 
 .CRUD-container .read .modal .modal-body {
     width: 100%;

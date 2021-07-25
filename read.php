@@ -8,16 +8,16 @@
 
 
 <!-- Read Table -->
-<div class="CRUD-container">
+<div class="CRUD-container px-5 d-flex flex-column justify-content-center align-items-center">
     <div class="box read">
-        <h4 class="display-4 text-center">Read</h4><hr><br>
+        <h1 class="text-center">Read</h1>
         <?php if(isset($_GET['success'])) { ?>
             <div class="alert alert-success" role="alert">
                 <?php echo $_GET['success']; ?>
             </div>
         <?php } ?>
         <?php if (mysqli_num_rows($result)) { ?>
-        <div class="table-responsive">
+        <div class="table-responsive mb-3">
 
             <table class="table">
                 <thead>
@@ -103,8 +103,8 @@
             </table>
         </div>
         <?php } ?>
-        <div class="link-right">
-            <a href="./upload.php">Upload</a>
+        <div class="link-right mx-5">
+            <a href="./upload.php" class="link-primary">Upload</a>
         </div>
     </div>
 </div>
