@@ -16,10 +16,13 @@
         <div class="mb-3">
             <!-- <label for="username" class="form-label">Username</label> -->
             <input class="form-control" id="username" name="usernameL" placeholder="Username">
+            <p class="error-text m-0 p-0"></p>
         </div>
         <div class="mb-3">
             <!-- <label for="password" class="form-label">Password</label> -->
             <input type="text" class="form-control" id="password" name="passwordL" placeholder="Password">
+            <p class="error-text m-0 p-0"></p>
+
         </div>
         <button type="submit" class="btn btn-primary mb-3" name="login">Login</button>
         <p>Haven't register? <a href="./register.php">Register Here!</a></p>
@@ -28,10 +31,41 @@
 
 
 
-<script src="./JS/loginRegister.js"></script>
 
 
 <script>
+
+    var username = $("#username");
+    var password = $("#password");
+
+    function resetLoginErrors() {
+        username.next().html("");
+        username.next().removeClass("error-shake");
+        password.next().html("");
+        password.next().removeClass("error-shake");
+    }
+
+    function loginErrorHandler() {
+        
+        resetLoginErrors();
+        let bool = true;        
+
+        if (username.val() == "") {
+            username.next().html("Cannot leave username blank!")
+            username.next().addClass("error-shake");
+            bool = false;
+        }
+
+        if (password.val() == "") {
+            password.next().html("Cannot leave password blank!")
+            password.next().addClass("error-shake");
+            bool = false;
+
+        }
+
+        return bool;
+    }
+
     $("#loginForm").submit(function(e) {
         
         if (loginErrorHandler()) {
@@ -46,10 +80,15 @@
                         location.replace("./index.php");
                     }
                     else if (data == 2) {
-                        console.log("Wrong password");
+                        console.log("wrong password");
+
+                        password.next().html("Wrong Password")
+                        password.next().addClass("error-shake");
                     }
                     else {
-                        console.log("No such data");
+                        console.log("username doesn't exist");
+                        username.next().html("Username doesn't exist")
+                        username.next().addClass("error-shake");
                     }
 
 
