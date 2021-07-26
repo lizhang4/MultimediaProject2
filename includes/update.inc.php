@@ -91,11 +91,13 @@ else if (isset($_POST['update']) && isset($_FILES)) {
         $currentResult = mysqli_query($conn, $currentSql);
 
         if(mysqli_num_rows($currentResult) > 0) {
+            
 
             $rows = mysqli_fetch_assoc($currentResult);
             
             $currentImageName = $rows['image_url'];
-            $currentImageLocation = '../../uploads/contentImg/'.$currentImageName;
+            
+            $currentImageLocation = '../uploads/contentImg/'.$currentImageName;
             if (file_exists($currentImageLocation)) {
                 unlink($currentImageLocation);
             }

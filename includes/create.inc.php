@@ -19,6 +19,8 @@ if (isset($_POST['create']) && isset($_FILES['image'])) {
     $tmp_name = $_FILES['image']['tmp_name'];
     $error = $_FILES['image']['error'];
 
+    $postingDate = date("Y-m-d");
+
     echo "<pre>";
     print_r($_FILES['image']);
     echo "<pre>";
@@ -62,8 +64,8 @@ if (isset($_POST['create']) && isset($_FILES['image'])) {
             }
         }
 
-        $sql = "INSERT INTO contents(name, date, info, image_url)
-                VALUES('$name', '$date','$info', '$new_img_name')";
+        $sql = "INSERT INTO contents(name, date, info, image_url, postingDate)
+                VALUES('$name', '$date','$info', '$new_img_name', '$postingDate')";
 
         $result = mysqli_query($conn, $sql);
 

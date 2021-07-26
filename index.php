@@ -41,6 +41,7 @@
                         contents.image_url,
                         contents.name,
                         contents.date,
+                        contents.postingDate,
                         contents.info,
                         COUNT(contents_likes.id) AS likes,
                         GROUP_CONCAT(users.username SEPARATOR '|') AS liked_by
@@ -99,7 +100,7 @@
                     <img src="./uploads/contentImg/<?=$article->image_url?>" alt="">
                 </div>
                 <div class="content">
-                   <h3 class="text-uppercase">Posted On: 17 July, 2021</h3> 
+                   <h3 class="text-uppercase">Posted On: <?=$article->postingDate?></h3> 
                    <h1 class="text-uppercase"><?=$article->name?></h1>
                    <p><?=trimStrLength($article->info)?></p>
                 </div>

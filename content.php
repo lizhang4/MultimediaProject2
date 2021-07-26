@@ -28,12 +28,6 @@
             }
         }
         return "";
-        // if (in_array($loggedInId ,$likes)) {
-        //     return "liked";
-        // }
-        // else {
-        //     return "";
-        // }
     }
     
     
@@ -61,7 +55,7 @@
         </div>
     </div>
     <div class="col-12 col-lg-6 order-0 order-lg-1 img d-flex justify-content-end">
-        <img src="./uploads/<?=$postImage?>" alt="" class="px-lg-3">
+        <img src="./uploads/contentImg/<?=$postImage?>" alt="" class="px-lg-3">
     </div>
 
 

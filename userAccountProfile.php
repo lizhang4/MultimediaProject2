@@ -79,7 +79,7 @@
                         <form class="edit-summary" action="./includes/users/userAccountUpdate.inc.php" method="POST">
                             <div class="modal-body d-flex flex-column">
                                 <h3 class="text-center">Update Summary</h3>
-                                <textarea name="shortSummary" class="my-3" id="" cols="30" rows="20"></textarea>
+                                <textarea name="shortSummary" class="my-3" id="" cols="30" rows="20"><?=$loggedInShortSummary?></textarea>
                                 <button type="submit" name="shortSummaryUpdate" class="btn btn-primary">Submit</button>
                             </div>
                         </form>
