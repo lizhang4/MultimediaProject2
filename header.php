@@ -46,7 +46,11 @@
         </div>
         <div class="links col-7 " >
             <a href="./index.php" class="mx-4 d-none d-md-inline">Home</a>
-            <a href="./upload.php" class="mx-4 d-none d-md-inline">Upload</a>
+            <?php 
+                if (!empty($_SESSION['username'])){
+                    if($_SESSION['username'] == 'admin')  {?>
+                    <a href="./upload.php" class="mx-4 d-none d-md-inline">Upload</a>
+            <?php } } ?>
         </div>
         <div class="account col-3 d-flex justify-content-end align-items-center">
             <?php

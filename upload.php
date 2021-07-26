@@ -1,5 +1,11 @@
 <?php
     include "header.php";
+    if (!empty($_SESSION['username'])) {
+        if ($_SESSION['username'] != 'admin') {
+            header("Location: http://localhost/multimediaproject2/index.php");
+        }
+    }
+
 ?>
 
 <!-- Create Form -->
