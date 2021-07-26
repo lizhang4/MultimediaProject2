@@ -61,11 +61,33 @@ if (isset($_POST['updateProfileImage'])) {
             die();
         }
 
+        $currentSql = "SELECT *
+                        FROM users
+                        WHERE username='$username'";
+
+        $currentResult = mysqli_query($conn, $currentSql);
+
+        if(mysqli_num_rows($currentResult) > 0) {
+
+            $rows = mysqli_fetch_assoc($currentResult);
+    
+            
+            $currentImageName = $rows['profileImage'];
+            $currentImageLocation = '../../uploads/userProfilePic/'.$currentImageName;
+            if (file_exists($currentImageLocation)) {
+                unlink($currentImageLocation);
+            }
+            echo $location;
+        }
+        
+
         $sql = "UPDATE users
                 SET profileImage='$new_img_name'
                 WHERE username='$username'";
 
         $result = mysqli_query($conn, $sql);
+
+
 
         if($result) {
             header("Location: ../../userAccountProfile.php?success=successfully updated");
