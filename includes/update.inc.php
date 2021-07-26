@@ -75,7 +75,7 @@ else if (isset($_POST['update']) && isset($_FILES)) {
 
             if (in_array($img_extension_lc, $allowed_extensions)) {
                 $new_img_name = uniqid("IMG-", true).'.'.$img_extension_lc;
-                $img_upload_path = '../uploads/'.$new_img_name;
+                $img_upload_path = '../uploads/contentImg/'.$new_img_name;
                 move_uploaded_file($tmp_name, $img_upload_path);
             }
             else {
@@ -83,6 +83,25 @@ else if (isset($_POST['update']) && isset($_FILES)) {
 
             }
         }
+
+        $currentSql = "SELECT *
+                        FROM contents
+                        WHERE name='$name'";
+
+        $currentResult = mysqli_query($conn, $currentSql);
+
+        if(mysqli_num_rows($currentResult) > 0) {
+
+            $rows = mysqli_fetch_assoc($currentResult);
+            
+            $currentImageName = $rows['image_url'];
+            $currentImageLocation = '../../uploads/contentImg/'.$currentImageName;
+            if (file_exists($currentImageLocation)) {
+                unlink($currentImageLocation);
+            }
+        }
+
+
         $sql = "UPDATE contents
                 SET name = '$name', date = '$date', info = '$info', image_url = '$new_img_name'
                 WHERE id=$id ";

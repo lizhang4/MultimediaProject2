@@ -72,7 +72,7 @@
                             <div class="modal-dialog modal-md">
                                 <div class="modal-content">
                                     <div class="modal-body">
-                                        <img src="./uploads/<?=$rows['image_url']?>" > 
+                                        <img src="./uploads/contentImg/<?=$rows['image_url']?>" > 
                                     </div>
                                 </div>
                             </div>

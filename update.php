@@ -31,7 +31,7 @@
                 <input type="number" class="form-control" id="contentDate" name="date" placeholder="Since" value="<?=$row['date']?>">
             </div>
             <div class="mb-3">
-                <textarea class="form-control" id="contentInfo" rows="7" name="info" placeholder="Info" value="<?=$row['info']?>"></textarea>
+                <textarea class="form-control" id="contentInfo" rows="7" name="info" placeholder="Info"><?=$row['info']?></textarea>
             </div>
     
             <div class="mb-3 d-flex flex-column">

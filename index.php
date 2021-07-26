@@ -96,7 +96,7 @@
             <?php foreach( array_reverse($articles) as $article) { ?>
             <div class="post" search-filter="<?=$article->name?>">
                 <div class="img">
-                    <img src="./uploads/<?=$article->image_url?>" alt="">
+                    <img src="./uploads/contentImg/<?=$article->image_url?>" alt="">
                 </div>
                 <div class="content">
                    <h3 class="text-uppercase">Posted On: 17 July, 2021</h3> 

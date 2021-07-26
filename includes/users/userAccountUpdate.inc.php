@@ -77,7 +77,6 @@ if (isset($_POST['updateProfileImage'])) {
             if (file_exists($currentImageLocation)) {
                 unlink($currentImageLocation);
             }
-            echo $location;
         }
         
 
