@@ -67,6 +67,9 @@
                         $string .= '...';
                         return $string;
                     }
+                    else {
+                        return $string;
+                    }
                 }
 
                 function checkIfUserLiked($liked_by) {
@@ -119,17 +122,19 @@
     <!-- End Post Section -->
 
 
-    
+
 
     <script>
     
     // Post like form
     function clickLike(id) {
-                
+        let ajax_load = "<img src='http://automobiles.honda.com/images/current-offers/small-loading.gif' alt='loading...' />";
+        let loadUrl = "./index.php"
         $.ajax({
             type: "GET",
             url: "./includes/like.inc.php",
             data: jQuery.param({id: id}),
+            cache: false,
             success: function(response) {
                 if(response == 1) {
                     location.reload();
