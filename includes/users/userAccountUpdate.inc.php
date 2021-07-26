@@ -1,5 +1,6 @@
 <?php
-
+// This scripts handles all the update function for user account including
+// Profile image updating and short summary updating
 
 session_start();
 

@@ -1,6 +1,6 @@
 <?php
 
-
+// This scripts handles the content updating function for the admin
 
 if (isset($_GET['id'])) {
     include "db.inc.php";

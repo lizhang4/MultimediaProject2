@@ -1,15 +1,14 @@
+<!-- This page exhibits the content of the website -->
+<!-- Each content will be render base on the database -->
+
+
 <?php
     include_once "header.php";
     include "./includes/contentInfo.inc.php";
 ?>
 
 <?php
-    // $query = "SELECT * FROM contents_likes WHERE contents= '$postId' ";
-    // $result = mysqli_query($conn, $query);
-    // $likes = mysqli_num_rows($result);
     include "./includes/users/userInfo.inc.php";
-
-    
     $query = "SELECT
                 contents_likes.users
                 FROM contents_likes
@@ -29,10 +28,10 @@
         }
         return "";
     }
-    
-    
 ?>
 
+
+<!-- Content Section -->
 <section class="content-container row">
     <div class="col-12 col-lg-6  order-1 order-lg-0 info-container">
         <h1><?=$postName?></h1>
@@ -57,15 +56,15 @@
     <div class="col-12 col-lg-6 order-0 order-lg-1 img d-flex justify-content-end">
         <img src="./uploads/contentImg/<?=$postImage?>" alt="" class="px-lg-3">
     </div>
-
-
 </section>
+
+<!-- End Content Section -->
+
 
 
 <script>
-
+    // This function handles the like function for users
     function clickLike(id) {
-                
         $.ajax({
             type: "GET",
             url: "./includes/like.inc.php",
@@ -75,7 +74,6 @@
                     location.reload();
                 }
             }
-
         });
     }
 </script>

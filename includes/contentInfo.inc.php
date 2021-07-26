@@ -1,5 +1,5 @@
 <?php 
-
+    // This script fetch database content data
     $conn = mysqli_connect('localhost', 'root', '', 'content_db');
 
     if(!$conn) {

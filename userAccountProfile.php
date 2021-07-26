@@ -2,6 +2,7 @@
     include "header.php";
 ?>
 
+<!-- Profile Page Section -->
 <div class="profile-section d-flex flex-column flex-lg-row justify-content-center align-items-center">
 
     <section class="profile-image d-flex justify-content-center mx-3">
@@ -93,8 +94,11 @@
     
 </div>
 
+<!-- End Profile Page Section -->
+
 
 <script>
+    // This script upload the image when image has been selected
     $("#profileImageUpload").change(function() {
         $("#updateProfileImageButton").click();
     })

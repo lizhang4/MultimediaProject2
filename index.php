@@ -1,9 +1,7 @@
-
-
 <?php
     include_once "./header.php";
 ?>
-
+    <!-- Hero Image Section -->
     <section class="hero-image border">
         <div class="title-container px-5 py-2 d-flex flex-column flex-md-row justify-content-between align-items-center border">
             <div class="title">
@@ -18,7 +16,9 @@
             </div>
         </div>
     </section>
+    <!-- End Hero Image Section -->
 
+    <!-- Post Section -->
     <section class="posts" id="posts">
         <div class="upper-row row d-flex align-items-center">
             <div class="col-6 col-lg-9 my-5 title text-uppercase text-start">Newest Articles</div>
@@ -57,12 +57,6 @@
                         GROUP BY contents.id
                 ");
 
-
-
-                
-
-                $i=0;
-
                 function trimStrLength($originalString) {
                     $string = strip_tags($originalString);
                     if (strlen($string) > 200) {
@@ -75,14 +69,6 @@
                     }
                 }
 
-                
-
-                while($rows = $articlesQuery->fetch_object()) {
-                    $rows->liked_by = $rows->liked_by ? explode('|', $rows->liked_by) : [];
-                    $articles[] = $rows;
-
-                }
-
                 function checkIfUserLiked($liked_by) {
                     if (in_array( $_SESSION['username'],$liked_by)) {
                         return "liked";
@@ -91,6 +77,15 @@
                         return "";
                     }
                 }
+                
+
+                while($rows = $articlesQuery->fetch_object()) {
+                    $rows->liked_by = $rows->liked_by ? explode('|', $rows->liked_by) : [];
+                    $articles[] = $rows;
+
+                }
+
+                
                 
             ?>
 
@@ -121,9 +116,14 @@
             
         </div>
     </section>
+    <!-- End Post Section -->
+
+
+    
 
     <script>
-
+    
+    // Post like form
     function clickLike(id) {
                 
         $.ajax({
@@ -139,6 +139,7 @@
         });
     }
 
+    // Filter post through search
     $(document).ready(function() {
         $("#searchInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();

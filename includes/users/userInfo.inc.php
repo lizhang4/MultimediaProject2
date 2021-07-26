@@ -1,4 +1,5 @@
 <?php 
+    // This script fetch information of current user from database
 
     $conn = mysqli_connect('localhost', 'root', '', 'content_db');
 

@@ -3,10 +3,7 @@
     session_start();
     include "./users/userInfo.inc.php";
 
-
-
-
-
+    //This script handles the like function for users
     
         if(isset($_GET['id'])) {
 
@@ -56,6 +53,3 @@
         else {
             echo 2; //failed
         }
-
-        //TODO: Check if success
-        // header("Location: ../index.php");

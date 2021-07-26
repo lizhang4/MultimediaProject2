@@ -12,7 +12,8 @@
     }
 ?>
 
-<!-- Create Form -->
+<!-- This is the page for admin to update content of the page -->
+<!-- Update Form Section-->
 <div class="CRUD-container px-5 d-flex flex-column justify-content-center align-items-center">
     <div class="box d-flex flex-column justify-content-center align-items-center">
 
@@ -50,16 +51,15 @@
     </div>
 </div>
 
-<!-- End Create Form -->
+<!-- End Update Form Section-->
 
 
 <script>
+    //To preview the file name
     $("#image").change(function() {
         let fileName = $('#image')[0].files[0].name;
         $(this).prev('label').text(fileName);
     });
-
-
 </script>
 
 

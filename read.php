@@ -1,5 +1,3 @@
-
-
 <?php
     include "header.php";
     if (!empty($_SESSION['username'])) {
@@ -11,7 +9,7 @@
 ?>
 
 
-
+<!-- This is the page for admin to view uploaded content of the page -->
 <!-- Read Table -->
 <div class="CRUD-container px-5 d-flex flex-column justify-content-center align-items-center">
     <div class="box read">
@@ -115,13 +113,6 @@
 </div>
 
 <!-- End Read Table -->
-
-
-
-
-
-
-
 
 
 <?php

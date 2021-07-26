@@ -1,5 +1,6 @@
 <?php
 
+// This is the backend script that handles content upload
 if (isset($_POST['create']) && isset($_FILES['image'])) {
     include "db.inc.php";
 

@@ -1,5 +1,6 @@
 
-
+<!-- Contains footer element for most of the pages -->
+<!-- Social medial handlers -->
 <footer class="d-flex justify-content-center align-items-center py-3">
     <div class="social-media-container d-flex ">
         <a href="https://www.facebook.com/">
@@ -15,7 +16,6 @@
     </div>
 </footer>
 
-<!-- JS -->
 
 
 

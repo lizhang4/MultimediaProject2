@@ -4,54 +4,56 @@
 
 
 
-
+<!-- Registration form section -->
 <form id="registrationForm" class="register-container d-flex flex-column justify-content-center align-items-center" enctype="multipart/form-data">
-<div class="box d-flex flex-column justify-content-center align-items-center">
+    <div class="box d-flex flex-column justify-content-center align-items-center">
         <h1 class=" text-center my-4">Register</h1>
         
-            <div class="mb-3">
-                <input class="form-control" id="username" name="usernameR" placeholder="Username">
-                <p class="error-text m-0 p-0"></p>
+        <div class="mb-3">
+            <input class="form-control" id="username" name="usernameR" placeholder="Username">
+            <p class="error-text m-0 p-0"></p>
 
-            </div>
-            <div class="mb-3">
-                <input type="password" class="form-control" id="password" name="passwordR" placeholder="Password">
-                <p class="error-text m-0 p-0"></p>
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" id="password" name="passwordR" placeholder="Password">
+            <p class="error-text m-0 p-0"></p>
 
-            </div>
-            <div class="mb-3">
-                <input type="password" class="form-control" id="repassword" name="repasswordR"  placeholder="Repeat Password">
-                <p class="error-text m-0 p-0"></p>
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" id="repassword" name="repasswordR"  placeholder="Repeat Password">
+            <p class="error-text m-0 p-0"></p>
 
-            </div>
-        
-            <div class="mb-3 gender d-flex flex-column">
-                <select name="genderR" id="gender">
-                    <option value="" disabled selected>Select your gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-                <p class="error-text m-0 p-0"></p>
+        </div>
+    
+        <div class="mb-3 gender d-flex flex-column">
+            <select name="genderR" id="gender">
+                <option value="" disabled selected>Select your gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <p class="error-text m-0 p-0"></p>
 
-            </div>
+        </div>
 
-            <div class="mb-3 d-flex flex-column">
-                <textarea name="shortSummaryR" id="shortSummary" cols="50" rows="10" placeholder="Short Summary within 100 words"></textarea>
-                <p class="error-text m-0 p-0"></p>
-            </div>
+        <div class="mb-3 d-flex flex-column">
+            <textarea name="shortSummaryR" id="shortSummary" cols="50" rows="10" placeholder="Short Summary within 100 words"></textarea>
+            <p class="error-text m-0 p-0"></p>
+        </div>
 
-        
-            <button type="submit" class="btn btn-primary mb-3" name="register">Register</button>
-            <p class="mb-4">Already register? <a href="./login.php">Log in Here!</a></p>
+    
+        <button type="submit" class="btn btn-primary mb-3" name="register">Register</button>
+        <p class="mb-4">Already register? <a href="./login.php">Log in Here!</a></p>
 
     </div>
 </form>
 
+<!-- End Registration form section -->
 
 
-<script src="./JS/loginRegister.js"></script>
 
 
+
+<!-- Registration form script -->
 <script>
     let username = $("#username");
     let password = $("#password");
@@ -59,6 +61,7 @@
     let gender = ($("#gender"));
     let shortSummary = $("#shortSummary");
 
+    // This function is to reset the errors on the form when user is going to submit again
     function resetRegisterErrors() {
         username.next().html("");
         username.next().removeClass("error-shake");
@@ -72,6 +75,7 @@
         shortSummary.next().removeClass("error-shake");
     }
 
+    // This function will validate the register info be fore submiting
     function loginErrorHandler() {
         resetRegisterErrors();
 
@@ -136,7 +140,7 @@
     }
     
 
-
+    // Registration form will be POST with ajax with the code below
     $(document).ready(function(e){
         $("#registrationForm").submit(function(e) {
             
@@ -161,28 +165,14 @@
                         else {
                             alert("Error");
                         }
-    
-    
-    
-    
-    
+
                     }
     
                 });
             }
             e.preventDefault();
-
-    
-    
         });
-
-
-
     });
-
-
-
-
 </script>
 
 

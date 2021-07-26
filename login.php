@@ -3,7 +3,7 @@
 ?>
 
 
-
+<!-- Login form section -->
 
 <form id="loginForm" class="login-container d-flex flex-column justify-content-center align-items-center" enctype="multipart/form-data">
     <div class="box d-flex flex-column justify-content-center align-items-center">
@@ -27,15 +27,20 @@
     </div>
 </form>
 
+<!-- End Login form section -->
 
 
 
 
+
+<!-- Login form script -->
 <script>
 
-    var username = $("#username");
-    var password = $("#password");
+    let username = $("#username");
+    let password = $("#password");
 
+    
+    // This function is to reset the errors on the form when user is going to submit again
     function resetLoginErrors() {
         username.next().html("");
         username.next().removeClass("error-shake");
@@ -43,6 +48,7 @@
         password.next().removeClass("error-shake");
     }
 
+    // this function is to validate info from login form
     function loginErrorHandler() {
         
         resetLoginErrors();
@@ -64,6 +70,8 @@
         return bool;
     }
 
+
+    // POST request to php will be sent here through ajax
     $("#loginForm").submit(function(e) {
         
         if (loginErrorHandler()) {
@@ -88,22 +96,12 @@
                         username.next().html("Username doesn't exist")
                         username.next().addClass("error-shake");
                     }
-
-
-
-
-
                 }
 
             });
         }
         e.preventDefault();
-
-
     });
-
-
-
 
 </script>
 

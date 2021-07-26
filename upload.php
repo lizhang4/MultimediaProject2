@@ -8,7 +8,8 @@
 
 ?>
 
-<!-- Create Form -->
+<!-- This is the page for admin to upload content for the page -->
+<!-- Upload form section -->
 <div class="CRUD-container px-5 d-flex flex-column justify-content-center align-items-center">
     <div class="box d-flex flex-column justify-content-center align-items-center">
         <h1 class="text-center mb-3">Create</h1>
@@ -40,21 +41,15 @@
     </div>
 </div>
 
-<!-- End Create Form -->
+<!-- End Upload Form Section-->
 
 <script>
+    // Display the name of the uploaded image when image is upload
     $("#image").change(function() {
         let fileName = $('#image')[0].files[0].name;
         $(this).prev('label').text(fileName);
     });
-
-
 </script>
-
-
-
-
-
 
 
 <?php

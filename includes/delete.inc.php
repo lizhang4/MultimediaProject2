@@ -1,5 +1,6 @@
 <?php
 
+// This script handles deletion of content from database
 if(isset($_GET['id'])) {
     include "db.inc.php";
     function validate($data) {
