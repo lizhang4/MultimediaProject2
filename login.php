@@ -14,13 +14,11 @@
         <h1 class=" text-center mb-4">User Log in</h1>
     
         <div class="mb-3">
-            <!-- <label for="username" class="form-label">Username</label> -->
             <input class="form-control" id="username" name="usernameL" placeholder="Username">
             <p class="error-text m-0 p-0"></p>
         </div>
         <div class="mb-3">
-            <!-- <label for="password" class="form-label">Password</label> -->
-            <input type="text" class="form-control" id="password" name="passwordL" placeholder="Password">
+            <input type="password" class="form-control" id="password" name="passwordL" placeholder="Password">
             <p class="error-text m-0 p-0"></p>
 
         </div>

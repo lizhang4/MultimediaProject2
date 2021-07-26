@@ -58,7 +58,7 @@
 
             ?>
                     <div class="nav-profile d-none d-md-flex align-items-center">
-                        <img class="profile-image" <?= empty($loggedInProfileImageUrl) ? 'src="./uploads/userProfilePic/IMG-60f2a53cf1b7e8.11118489.jpg"' : 'src="./uploads/userProfilePic/'.$loggedInProfileImageUrl.'"'; ?>>
+                        <img class="profile-image" <?= empty($loggedInProfileImageUrl) ? 'src="./imgs/AccountImage.png"' : 'src="./uploads/userProfilePic/'.$loggedInProfileImageUrl.'"'; ?>>
                         <a href="./userAccountProfile.php">Hi, <?php echo $_SESSION['username'];?></a>
                         <button class="logout-button" style="padding-left: 20px;"><a href="#">Logout</a></button>
                     </div>

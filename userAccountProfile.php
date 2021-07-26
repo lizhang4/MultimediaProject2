@@ -6,7 +6,7 @@
 
     <section class="profile-image d-flex justify-content-center mx-3">
         <div class="img" >
-            <img <?= empty($loggedInProfileImageUrl) ? 'src="./uploads/userProfilePic/IMG-60f2a53cf1b7e8.11118489.jpg"' : 'src="./uploads/userProfilePic/'.$loggedInProfileImageUrl.'"'; ?>>
+            <img <?= empty($loggedInProfileImageUrl) ? 'src="./imgs/AccountImage.png"' : 'src="./uploads/userProfilePic/'.$loggedInProfileImageUrl.'"'; ?>>
             <form action="./includes/users/userAccountUpdate.inc.php" id="profileImageForm" method="POST" enctype="multipart/form-data">
                 <label for="profileImageUpload" id="labelProfileImage" class="d-flex justify-content-center align-items-center">
                     <i class="fas fa-pen"></i>

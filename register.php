@@ -15,12 +15,12 @@
 
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" id="password" name="passwordR" placeholder="Password">
+                <input type="password" class="form-control" id="password" name="passwordR" placeholder="Password">
                 <p class="error-text m-0 p-0"></p>
 
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" id="repassword" name="repasswordR"  placeholder="Repeat Password">
+                <input type="password" class="form-control" id="repassword" name="repasswordR"  placeholder="Repeat Password">
                 <p class="error-text m-0 p-0"></p>
 
             </div>
